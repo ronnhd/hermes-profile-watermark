@@ -4,11 +4,9 @@ A sleek desktop UI plugin for [Hermes Desktop](https://hermes-agent.nousresearch
 
 Never accidentally mix up which bot or profile you are chatting with.
 
-![Hermes Profile Watermark preview](preview.png)
-
 ## Highlights
 
-- **Glanceable Identity**: Renders a large, modern typographic watermark (`TONY`, `DELTA`, `DECKPR`, `ZALO`, etc.) anchored at the bottom-right corner of the active chat.
+- **Glanceable Identity**: Renders a large, modern typographic watermark (e.g. `HERMES`, `RESEARCH`, `CODER`, `ASSISTANT`, etc.) anchored at the bottom-right corner of the active chat.
 - **Dynamic Profile Colors**: Automatically inherits custom colors configured via the Hermes profile rail picker (`localStorage`), falling back to Hermes's deterministic hue algorithm or active theme accent.
 - **Smart Dock Clearance**: Dynamically observes `--composer-measured-height` so the watermark never gets covered by expanding multi-line composer inputs.
 - **Non-Intrusive**: Styled with low opacity (`0.09`), `pointer-events: none`, and `user-select: none`. It never interferes with message reading, clicking, or text selection.
@@ -34,10 +32,10 @@ curl -fsSL https://raw.githubusercontent.com/ronnhd/hermes-profile-watermark/mai
 ## Configuration
 
 - **Profile Colors**: Long-press or right-click any profile square on the sidebar profile rail to select a custom color swatch. The watermark will update immediately.
-- **Default Profile Name**: The root (`default`) profile displays as `TONY`. To customize the default profile label, run this in the DevTools console (`⌘⌥I`):
+- **Default Profile Name**: The root (`default`) profile displays as `HERMES` by default. To customize what the default profile displays (e.g. your personal bot's name), run this in the DevTools console (`⌘⌥I`):
 
 ```js
-localStorage.setItem('hermes.profileWatermark.defaultName', 'HERMES')
+localStorage.setItem('hermes.profileWatermark.defaultName', 'MY-BOT')
 ```
 
 ## License

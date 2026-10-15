@@ -33,12 +33,12 @@ const CSS = `
 
 function getProfileDisplayName(name) {
   const clean = (name ?? '').trim().toLowerCase()
-  if (!clean || clean === 'default' || clean === 'tony') {
+  if (!clean || clean === 'default') {
     try {
       const custom = localStorage.getItem('hermes.profileWatermark.defaultName')
       if (custom) return custom.trim().toUpperCase()
     } catch {}
-    return 'TONY'
+    return 'HERMES'
   }
   return clean.toUpperCase()
 }
@@ -51,17 +51,14 @@ function getProfileColor(name) {
     const raw = localStorage.getItem('hermes.desktop.profileColors')
     if (raw) {
       const overrides = JSON.parse(raw)
-      if (overrides) {
-        if (clean && overrides[clean]) return overrides[clean]
-        if ((!clean || clean === 'default' || clean === 'tony') && (overrides['default'] || overrides['tony'])) {
-          return overrides['default'] || overrides['tony']
-        }
+      if (overrides && clean && overrides[clean]) {
+        return overrides[clean]
       }
     }
   } catch {}
 
-  // 2. Default (Tony) falls back to the active theme accent
-  if (!clean || clean === 'default' || clean === 'tony') {
+  // 2. Default profile falls back to the active theme accent
+  if (!clean || clean === 'default') {
     return 'var(--ui-accent)'
   }
 
@@ -178,7 +175,7 @@ export default {
 
     // 5. Watch localStorage color changes from rail picker
     const onStorage = e => {
-      if (e.key === 'hermes.desktop.profileColors') {
+      if (e.key === 'hermes.desktop.profileColors' || e.key === 'hermes.profileWatermark.defaultName') {
         syncWatermarks()
       }
     }
