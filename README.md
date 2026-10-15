@@ -4,6 +4,8 @@ A sleek desktop UI plugin for [Hermes Desktop](https://hermes-agent.nousresearch
 
 Never accidentally mix up which bot or profile you are chatting with.
 
+![Hermes Profile Watermark Preview](preview.png)
+
 ## Highlights
 
 - **Glanceable Identity**: Renders a large, modern typographic watermark (e.g. `HERMES`, `RESEARCH`, `CODER`, `ASSISTANT`, etc.) anchored at the bottom-right corner of the active chat.
